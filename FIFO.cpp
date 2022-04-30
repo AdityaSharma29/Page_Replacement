@@ -29,9 +29,8 @@ int replace ( std::vector< pair <int, int>> *frames, int no_frames, std::vector<
     // find the page to be replaced
     int minimun_priority = INT_MAX;
     int index = -1; 
-    for (int i = 0; i < no_frames; i++) {
+    for (int i = 0; i < no_frames; i++) 
         if(frames->at(i).second < minimun_priority ) { index = i; minimun_priority = frames->at(i).second; }
-    }
     
     // replace page in frames + track, update priority 
     frames->at(index).first = req;
@@ -47,7 +46,6 @@ int main() {
     std::vector<int> req_seq;
     std::vector<int> track;
     vector < pair <int, int>> frames;
-    pair < int, int> pr;
     
     // get no of frames 
     std::cout << " frames : ";
@@ -64,15 +62,13 @@ int main() {
     int pf_count = 0;   
     
     //traverse through request sequence
-    for (int i = 0; i < req_seq.size(); i++) {
+    for (int i = 0; i < req_seq.size(); i++) 
         pf_count += replace ( &frames, f, &track, req_seq[i]); 
-    }
     
     std::cout << "pf_count : " << pf_count  << std::endl;
     
-    for (int i=0; i<frames.size(); i++){
+    for (int i=0; i<frames.size(); i++)
         cout << frames[i].first << " " << frames[i].second << endl;
-    }
-    
+ 
     return 0;
 }
